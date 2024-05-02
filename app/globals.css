@@ -1,0 +1,142 @@
+
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height : 8vh;
+  width: 85%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  background-color: #76203a;
+  z-index: 100;
+
+}
+ul {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  display: inline-block;
+  font-size: larger;
+  text-decoration: none;
+  color: cornflowerblue;
+}
+
+.link:hover {
+
+  text-decoration: underline;
+  color: chocolate;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+li {
+  display: inline;
+  margin: 0 1rem;
+}
+
+.hidden {
+  display: none;
+
+}
+
+.PictureBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+}
+
+.Bride {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+  width:50%;
+}
+
+.Groom {
+display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+  width:50%;
+}
+
+.MainPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100%;
+}
+
+.MainPage h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.MainPage p {
+  font-size: 0.75rem;
+  color: #333;
+  padding: 0;
+  margin: 0.1rem;
+}
+
+
+.BrideBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3vmin;
+  width:  3vmax;
+  border-radius: 19%;
+  margin: 1rem;
+
+  background-color: grey;
+  text-align: center;
+  color: cornflower;
+  text-decoration: none;
+  font-size: 0.65rem;
+
+
+}
+
+.profile:hover {
+  text-decoration: underline;
+  color: chocolate;
+}
+
+.ProfileContainer {
+  display: flex;
+  position:fixed;
+  top:0;
+  right:0;
+  justify-content: center;
+  align-items: center;
+  height:8vh;
+  width: auto;
+  padding: 1rem;
+  background-color: #76203a;
+  z-index: 100;
+}
