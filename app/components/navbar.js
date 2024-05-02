@@ -5,6 +5,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { auth, currentUser } from "@clerk/nextjs/server";
+import { Modal } from '@mui/material'
+
+
 
  const Navbar = ()=> {
     const { userId } = auth();
