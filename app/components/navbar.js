@@ -5,7 +5,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { Modal } from '@mui/material'
+import { SignOutButton } from '@clerk/nextjs';
 
 
 
@@ -38,7 +38,7 @@ import { Modal } from '@mui/material'
                 </ul>
             </nav>
                 <div className='ProfileContainer'>
-                {userId && (<Link  className="profileOpen" href="/dashboard">Dashboard</Link>)}
+                {userId && (<div className='profileOpen'><SignOutButton/></div>)}
                 {!userId && (<>
                     <Link className="profile"  href="/sign-in">Sign in</Link>
                     <Link className="profile"  href="/sign-up">Sign up</Link>
