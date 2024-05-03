@@ -38,7 +38,7 @@ import { Modal } from '@mui/material'
                 </ul>
             </nav>
                 <div className='ProfileContainer'>
-                {userId && (<Link  className="profile" href="/dashboard">Dashboard</Link>)}
+                {userId && (<Link  className="profileOpen" href="/dashboard">Dashboard</Link>)}
                 {!userId && (<>
                     <Link className="profile"  href="/sign-in">Sign in</Link>
                     <Link className="profile"  href="/sign-up">Sign up</Link>

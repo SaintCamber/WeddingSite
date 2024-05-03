@@ -1,11 +1,9 @@
 'use server';
 import { sql } from '@vercel/postgres';
-import { unstable_noStore as noStore } from 'next/cache';
 import { saltAndHashPassword,comparePasswordToHash } from './utils.js';
 import bcrypt from 'bcryptjs';
 
 export const getAttendanceMetrics = async () => {
-    noStore();
     const attending = await sql`SELECT COUNT(*) FROM rsvp WHERE attending = true;`
     const notAttending = await sql`SELECT COUNT(*) FROM rsvp WHERE attending = false;`
     return {attending : attending.rows[0].count, notAttending : notAttending.rows[0].count}
@@ -58,3 +56,6 @@ export const SubmitRegistration = async ({user}) => {
         console.log(error);
     }
 }
+
+
+
