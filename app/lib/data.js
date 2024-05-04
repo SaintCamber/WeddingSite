@@ -59,3 +59,15 @@ export const SubmitRegistration = async ({user}) => {
 
 
 
+export async function checkRSVPStatus(user_id) {
+    try {
+        const RSVP = await sql`SELECT * FROM rsvp WHERE user_id = ${user_id};`
+        if (RSVP.rows.length > 0){
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};

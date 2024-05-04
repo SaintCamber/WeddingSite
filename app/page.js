@@ -4,6 +4,7 @@
 
 import React from 'react';
 import Bride from './components/Bride.js';
+import Groom from './components/Groom.js';
 // import Groom from '../components/Groom.js';
 
 
@@ -19,14 +20,26 @@ export default function Home({children}) {
         <h1>Wedding Website</h1>
         <p> </p>
       </div>
+      <div className="containerForContent">
+ <div className="justTheTwoOfUs">
+        <h2>Stuff for both of the newlyweds?</h2>
+          <p>maybe throw a picture or two here</p>
+          <div className='blox'></div>
+      </div>
+
       <div className='PictureBox'>
         <div className='Bride'>
           <Bride />
         </div>
         <div className='Groom'>
-          {/* <Groom /> */}
+          <Groom />
         </div>
       </div>
+
+
+      </div>
+
+
 
     </div>
 

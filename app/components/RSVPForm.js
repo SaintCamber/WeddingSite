@@ -2,15 +2,13 @@
 import React, { useState,useEffect } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import './componentCSS/RSVPForm.css';
-import User from '../../public/mockUser.js';
 
 
-const RSVPForm = ({Submit})=>{
+const RSVPForm = ({Submit,user})=>{
     const [checked, setChecked] = useState('');
 
     const [dietaryRestrictions,setDietaryRestrictions] =useState("");
     const [disabled,setDisabled] =useState(true);
-    const currentUser = User;
     useEffect(() => {
         // Enable the submit button only if 'yes' or 'no' is checked
         setDisabled(checked !== 'yes' && checked !== 'no');
@@ -34,22 +32,21 @@ const RSVPForm = ({Submit})=>{
 
         // Create a new RSVP object
         let newRSVP = {
-            user_id: currentUser.id,
+            user_id: user.id,
             attending: checked === 'yes' ? true : false,
             dietaryRestrictions: dietaryRestrictions
         };
 
         // Send the new RSVP object to the server for now console.log it
-        Submit(newRSVP);
+        await Submit(newRSVP);
         // Reset the form
         setChecked('');
         setDietaryRestrictions('');
       }
 
     return (
-        <div style={{display:'flex',flexDirection:"column",justifyContent:"center"}}>
-            <div style={{display:"flex",width:'100%',justifyContent:'center'}}>
-            <h2>Hi {currentUser.name}!,</h2>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+            <div className="RSVPform">
             <p>Will you be attending the wedding?</p>
         <div className='RSVPForm'>
             <form style={{flexDirection:"column",display:"flex"}} onSubmit={handleSubmit}>

@@ -18,9 +18,7 @@ async function seed() {
             user_id INT,
             attending BOOLEAN,
             dietaryRestrictions VARCHAR(255),
-            "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (user_id) REFERENCES Users(id)
-        );
+            "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP);
         `
 
     const createRegistryTable = await sql`
