@@ -5,6 +5,8 @@
 import React from 'react';
 import Bride from './components/Bride.js';
 import Groom from './components/Groom.js';
+import Image from 'next/image';
+import both from './images/both.jpg';
 // import Groom from '../components/Groom.js';
 
 
@@ -24,7 +26,9 @@ export default function Home({children}) {
  <div className="justTheTwoOfUs">
         <h2>Stuff for both of the newlyweds?</h2>
           <p>maybe throw a picture or two here</p>
-          <div className='blox'></div>
+          <div className='blox'>
+            <Image src={both} alt="Picture of the newlyweds" width={500} height={500} />
+          </div>
       </div>
 
       <div className='PictureBox'>
