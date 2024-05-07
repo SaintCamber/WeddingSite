@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import './EmblaCSS.css'
 
 export const Thumb = (props) => {
   const { selected, index, onClick,slide } = props
@@ -15,7 +16,7 @@ export const Thumb = (props) => {
         type="button"
         className="embla-thumbs__slide__number"
       >
-        <Image src={slide} alt="Picture" width={100} height={100} />
+        <Image src={slide} alt="Picture" width={80} height={80} />
       </button>
     </div>
   )
