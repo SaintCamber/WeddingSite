@@ -2,6 +2,7 @@
 import { sql } from '@vercel/postgres';
 import { saltAndHashPassword,comparePasswordToHash } from './utils.js';
 import bcrypt from 'bcryptjs';
+import {revalidatePath} from 'next/cache';
 
 export const getAttendanceMetrics = async () => {
     const attending = await sql`SELECT COUNT(*) FROM rsvp WHERE attending = true;`
@@ -13,11 +14,12 @@ export const SubmitRSVP = async (newRSVP) => {
     // console.log(newRSVP);
     try {
         await sql`INSERT INTO rsvp (user_id, attending, dietaryRestrictions) VALUES (${newRSVP.user_id}, ${newRSVP.attending}, ${newRSVP.dietaryRestrictions})`
-        return true;
     } catch (error) {
         console.log(error);
         return false;
     }
+    revalidatePath('/RSVP')
+    return true;
 };
 
 
@@ -60,14 +62,22 @@ export const SubmitRegistration = async ({user}) => {
 
 
 export async function checkRSVPStatus(user_id) {
+    'use server'
     try {
-        const RSVP = await sql`SELECT * FROM rsvp WHERE user_id = ${user_id};`
-        if (RSVP.rows.length > 0){
-            return true;
-        } else {
-            return false;
-        }
+        const {rows,fields} = await sql`SELECT * FROM rsvp WHERE user_id =${user_id};`
+        return rows.length;
+    } catch (error) {
+        console.log(error);
+};
+}
+
+
+export const getRSVP = async (user_id) => {
+    'use server'
+    try {
+        const {rows,fields} = await sql`SELECT * FROM rsvp WHERE user_id =${user_id};`
+        return rows;
     } catch (error) {
         console.log(error);
     }
-};
+}

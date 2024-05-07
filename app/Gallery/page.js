@@ -10,7 +10,7 @@ export default function Gallery() {
     const OPTIONS = { loop: true }
     const SLIDE_COUNT = 5
     // const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
-    const SLIDES = [both,testFirst,testSecond,both,testFirst,testSecond,both,testFirst,testSecond]
+    const SLIDES = [both,testFirst,testSecond,both,testFirst,testSecond,both,testFirst,testSecond,both,testFirst,testSecond]
 
     return (
         <div className="Gallery">

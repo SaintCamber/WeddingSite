@@ -1,6 +1,6 @@
 body {
   padding-top: 5vh;
-  background-color: lightgrey;
+  background-color: darkgrey;
   overflow:scroll;
 }
 .navbar {
@@ -191,18 +191,18 @@ display: flex;
   align-items: center;
   height: 90vh;
   width: 100%;
-  background-color: lightgrey;
+  background-color: darkgrey;
 }
-.RSVPform {
+.RSVPForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
-  width: 50%;
+  height: 40vh;
+  width: 100%;
   padding: 1rem;
-  margin: 1rem;
   color: cornflowerblue;
+  border-radius: 1rem;
 
 }
 
@@ -225,7 +225,7 @@ display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: lightgrey;
+  background-color: darkgrey;
   /* border: 1px solid black; */
   width: 100%;
 
@@ -250,7 +250,7 @@ display: flex;
   align-items: center;
   min-height: 100%;
   width: 100%;
-  background-color: lightgrey;
+  background-color: darkgrey;
   /* border: 1px solid black; */
   margin: 0;
   padding: 0;
@@ -264,8 +264,24 @@ display: flex;
   align-items: center;
   min-height: 100%;
   width: 100%;
-  background-color: lightgrey;
+  background-color: darkgrey;
   /* border: 1px solid black; */
   margin: 0;
   padding: 0;
+}
+
+
+.RSVPFormContainer {
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  width: 40vw;
+}
+
+.RSVPFormContainer p {
+  margin-bottom: 0;
+  color: cornflowerblue;
 }

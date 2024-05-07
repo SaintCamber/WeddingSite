@@ -3,20 +3,43 @@ import RSVPForm from '../components/RSVPForm.js';
 import AttendanceMetrics from '../components/AttendanceMetrics.js';
 import { SubmitRSVP, getAttendanceMetrics,checkRSVPStatus } from '../lib/data.js';
 import { currentUser } from "@clerk/nextjs/server";
+import Link from 'next/link';
 
 
 
 const RSVP = async () => {
     'use server'
     const user = await currentUser();
+    if(user){
 
+        const RSVPStatus = await checkRSVPStatus(user.id);
+        if (RSVPStatus){
+            return (
+            <div className="RSVPage">
+                <h1>RSVP</h1>
+                <p>You have already RSVP'd</p>
+                <Link href='/RSVP/success'>View RSVP</Link>
+            </div>
+        )
+    } else {
+        return (
+            <div className="RSVPage">
+
+                <h1>Please RSVP below</h1>
+                <RSVPForm Submit={SubmitRSVP} user={{id:user.id,name:user.fullName}}/>
+            </div>
+        )
+    }
+} else {
     return (
         <div className='RSVPage'>
-        <h1>RSVP</h1>
-        {user ? <h2>hello,{user.fullName}!</h2> : <h2>Please sign in</h2>}
-        {user&&(user.firstName=='hunter'&&user.lastName=='nodwell')&&(<AttendanceMetrics metrics={await getAttendanceMetrics().then(data=>data)} />)}
-        {user&&!checkRSVPStatus(user.id)&&(<RSVPForm Submit={SubmitRSVP} user={{id:user.id}}/>)}
-    </div>
+            <h1>RSVP</h1>
+            <Link href={'/sign-in'}>Please login to RSVP</Link>
+        </div>
     )
+
 }
+}
+
+
 export default RSVP;

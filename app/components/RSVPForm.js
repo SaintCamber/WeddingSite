@@ -2,11 +2,11 @@
 import React, { useState,useEffect } from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import './componentCSS/RSVPForm.css';
-
+import {useRouter} from 'next/navigation';
 
 const RSVPForm = ({Submit,user})=>{
     const [checked, setChecked] = useState('');
-
+    const router = useRouter();
     const [dietaryRestrictions,setDietaryRestrictions] =useState("");
     const [disabled,setDisabled] =useState(true);
     useEffect(() => {
@@ -34,7 +34,7 @@ const RSVPForm = ({Submit,user})=>{
         let newRSVP = {
             user_id: user.id,
             attending: checked === 'yes' ? true : false,
-            dietaryRestrictions: dietaryRestrictions
+            dietaryRestrictions: dietaryRestrictions=='' ? 'None' : dietaryRestrictions
         };
 
         // Send the new RSVP object to the server for now console.log it
@@ -42,14 +42,14 @@ const RSVPForm = ({Submit,user})=>{
         // Reset the form
         setChecked('');
         setDietaryRestrictions('');
+        router.push('/RSVP/success');
       }
 
     return (
-        <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-            <div className="RSVPform">
-            <p>Will you be attending the wedding?</p>
-        <div className='RSVPForm'>
-            <form style={{flexDirection:"column",display:"flex"}} onSubmit={handleSubmit}>
+        <div className="RSVPFormContainer">
+
+            <p>Hello, {user.name},  Will you be attending the wedding?</p>
+            <form className='RSVPForm' onSubmit={handleSubmit}>
                 <label>
                     Yes, I will be attending the wedding.
                     <Checkbox  checked={checked === 'yes' ? true : false} onChange={handleCheckboxChange} value='yes'/>
@@ -69,8 +69,7 @@ const RSVPForm = ({Submit,user})=>{
 
             </form>
 
-        </div>
-            </div>
+
         </div>
     )
 
