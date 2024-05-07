@@ -17,7 +17,7 @@ const RSVP = async () => {
             return (
             <div className="RSVPage">
                 <h1>RSVP</h1>
-                <p>You have already RSVP'd</p>
+                <p>You already submitted an RSVP</p>
                 <Link href='/RSVP/success'>View RSVP</Link>
             </div>
         )
