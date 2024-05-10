@@ -3,12 +3,13 @@ import RSVPForm from '../components/RSVPForm.js';
 import AttendanceMetrics from '../components/AttendanceMetrics.js';
 import { SubmitRSVP, getAttendanceMetrics,checkRSVPStatus } from '../lib/data.js';
 import { currentUser } from "@clerk/nextjs/server";
+import {setPreviousUrlCookie} from '../lib/data.js'
 import Link from 'next/link';
 
 
 
 const RSVP = async () => {
-    'use server'
+    'use server';
     const user = await currentUser();
     if(user){
 
@@ -17,7 +18,7 @@ const RSVP = async () => {
             return (
             <div className="RSVPage">
                 <h1>RSVP</h1>
-                <p>You already submitted an RSVP</p>
+                <p>You have already submitted an RSVP!</p>
                 <Link href='/RSVP/success'>View RSVP</Link>
             </div>
         )

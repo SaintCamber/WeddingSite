@@ -3,6 +3,7 @@ import { sql } from '@vercel/postgres';
 import { saltAndHashPassword,comparePasswordToHash } from './utils.js';
 import bcrypt from 'bcryptjs';
 import {revalidatePath} from 'next/cache';
+import {cookies} from 'next/headers';
 
 export const getAttendanceMetrics = async () => {
     const attending = await sql`SELECT COUNT(*) FROM rsvp WHERE attending = true;`
@@ -81,3 +82,9 @@ export const getRSVP = async (user_id) => {
         console.log(error);
     }
 }
+
+
+export const setPreviousUrlCookie = (url)=>{
+    'use server'
+    cookies().set('previous',url,{maxAge: 60*60*24*7})
+    }
