@@ -10,6 +10,7 @@ import Link from 'next/link';
 const RSVP = async () => {
     'use server';
     const user = await currentUser();
+    
     if(user){
 
         const RSVPStatus = await checkRSVPStatus(user.id);

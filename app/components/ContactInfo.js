@@ -2,7 +2,8 @@
 
 export default function ContactInfo(){
 
-    return (
+    return (<div className='outerContactInfo'>
+            <h1>Contact Information</h1>
         <div className='ContactInfoContainer'>
             <div className="ContactInfo">
                 <h2>Bride Contact Info</h2>
@@ -15,6 +16,7 @@ export default function ContactInfo(){
                 <p>Email:</p>
                 <p>Phone:</p>
 
+            </div>
             </div>
             </div>
     )
