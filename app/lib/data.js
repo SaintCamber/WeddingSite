@@ -84,7 +84,3 @@ export const getRSVP = async (user_id) => {
 }
 
 
-export const setPreviousUrlCookie = (url)=>{
-    'use server'
-    cookies().set('previous',url,{maxAge: 60*60*24*7})
-    }
