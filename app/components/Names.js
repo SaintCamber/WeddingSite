@@ -2,6 +2,7 @@
 
 
 
+//this is going to be the names of the couple and go above the navbar with a nice font i think
 
 export default function Names(){
 
