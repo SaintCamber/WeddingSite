@@ -8,7 +8,7 @@ export default function ContactInfo(){
             <div className="ContactInfo">
                 <h2>Bride Contact Info</h2>
                 <p>Email:</p>
-                <p>Phone:</p>
+                <p>Phone:469-964-3356</p>
 
             </div>
             <div className="ContactInfo">
