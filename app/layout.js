@@ -21,6 +21,7 @@ export default function RootLayout({ children}) {
       <ClerkProvider>
       <body className={inter.className}>
         <Navbar />
+        <div className="pt-10 pb-10"></div>
         {children}
       </body>
     </ClerkProvider>
